@@ -32,11 +32,11 @@ Open `index.html` in a browser.
 ## Checklist Stage 1
 | ID | Requirement | Where (permalink) | How to check |
 | --- | --- | --- | --- |
-| S1-R1 | README: description, fields, sample data, how to run | [README.md](https://github.com/<user>/<repo>/blob/main/README.md) | read |
-| S1-R2 | AI usage section | [README.md](https://github.com/<user>/<repo>/blob/main/README.md#ai-usage) | read |
-| S1-R3 | AI log for stage 1 | [ai-log/etapa-01.md](https://github.com/<user>/<repo>/blob/main/ai-log/etapa-01.md) | read |
-| S1-R4 | header, form (text + select), 3 cards with own data | [index.html](https://github.com/<user>/<repo>/blob/main/index.html) | open the page |
-| S1-R5 | finished card looks different | [style.css](https://github.com/<user>/<repo>/blob/main/style.css) | look at the card |
-| S1-R6 | 2 columns on desktop, 1 under 700px | [style.css](https://github.com/<user>/<repo>/blob/main/style.css) | resize < 700px |
-| S1-R7 | visible focus, readable dark theme | [style.css](https://github.com/<user>/<repo>/blob/main/style.css) | Tab; dark mode |
-| S1-R8 | commit "Stage 1" pushed | [Commit history](https://github.com/<user>/<repo>/commits/main) | commit history |
+| S1-R1 | README: description, fields, sample data, how to run | https://github.com/Taroste/Proiect-tw/blob/2771a6e889c1205d8962e7bf0e142aa960b5aee7/README.md?plain=1#L1-L20 | read |
+| S1-R2 | AI usage section | https://github.com/Taroste/Proiect-tw/blob/2771a6e889c1205d8962e7bf0e142aa960b5aee7/README.md?plain=1#L22-L28 | read |
+| S1-R3 | AI log for stage 1 | https://github.com/Taroste/Proiect-tw/blob/2771a6e889c1205d8962e7bf0e142aa960b5aee7/AI-log/etapa-01.md | read |
+| S1-R4 | header, form (text + select), 3 cards with own data | https://github.com/Taroste/Proiect-tw/blob/2771a6e889c1205d8962e7bf0e142aa960b5aee7/index.html#L1-L60 | open the page |
+| S1-R5 | finished card looks different | https://github.com/Taroste/Proiect-tw/blob/2771a6e889c1205d8962e7bf0e142aa960b5aee7/style.css#L130-L138 | look at the card |
+| S1-R6 | 2 columns on desktop, 1 under 700px | https://github.com/Taroste/Proiect-tw/blob/2771a6e889c1205d8962e7bf0e142aa960b5aee7/style.css#L150-L156 | resize < 700px |
+| S1-R7 | visible focus, readable dark theme | https://github.com/Taroste/Proiect-tw/blob/2771a6e889c1205d8962e7bf0e142aa960b5aee7/style.css#L143-L167 | Tab; dark mode |
+| S1-R8 | commit "Stage 1" pushed | https://github.com/Taroste/Proiect-tw/commit/2771a6e889c1205d8962e7bf0e142aa960b5aee7 | commit history |
