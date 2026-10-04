@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedClinic - Mockup</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>MedClinic</h1>
+    <p>Gestionarea programărilor și a consultațiilor medicale.</p>
+    <p class="app-count">3 programări, dintre care 2 în așteptare</p>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Programare nouă</h2>
+      <form class="item-form">
+        <label>
+          Nume pacient & Detalii
+          <input type="text" name="titlu" placeholder="Ex: Popescu Ion (Consult)" required />
+        </label>
+        <label>
+          Specialitate medicală
+          <select name="eticheta">
+            <option value="cardiologie">Cardiologie</option>
+            <option value="neurologie">Neurologie</option>
+            <option value="pediatrie">Pediatrie</option>
+          </select>
+        </label>
+        <button type="submit">Adaugă programare</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Programările mele</h2>
+      <!-- Când lista e goală: <p class="empty">Nu există nicio programare.</p> -->
+      <ul class="item-list">
+        <li class="item-card">
+          <div>
+            <h3>Popescu Ion (Consult)</h3>
+            <span class="badge badge-cardiologie">Cardiologie</span>
+          </div>
+          <span class="status">În așteptare</span>
+        </li>
+        <li class="item-card done">
+          <div>
+            <h3>Ionescu Maria (Control)</h3>
+            <span class="badge badge-pediatrie">Pediatrie</span>
+          </div>
+          <span class="status">Onorată</span>
+        </li>
+        <li class="item-card">
+          <div>
+            <h3>Vasilescu Dan (Ecografie)</h3>
+            <span class="badge badge-neurologie">Neurologie</span>
+          </div>
+          <span class="status">În așteptare</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="app-footer">Proiect Tehnologii Web</footer>
+</body>
+</html>
