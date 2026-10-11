@@ -56,3 +56,10 @@ Open `index.html` in a browser.
 | S1-R6 | 2 columns on desktop, 1 under 700px | https://github.com/Taroste/Proiect-tw/blob/2771a6e889c1205d8962e7bf0e142aa960b5aee7/style.css#L150-L156 | resize < 700px |
 | S1-R7 | visible focus, readable dark theme | https://github.com/Taroste/Proiect-tw/blob/2771a6e889c1205d8962e7bf0e142aa960b5aee7/style.css#L143-L167 | Tab; dark mode |
 | S1-R8 | commit "Stage 1" pushed | https://github.com/Taroste/Proiect-tw/commit/2771a6e889c1205d8962e7bf0e142aa960b5aee7 | commit history |
+S2-R1** | JS file linked, logs on page load | [index.html](https://github.com/Taroste/Proiect-tw/blob/2771a6e889c1205d8962e7bf0e142aa960b5aee7/index.html) | Open page, check F12 console |
+| **S2-R2** | 3+ items with id, name, state, tag | [taskuri.js](https://github.com/Taroste/Proiect-tw/blob/052cc594e84da944f2864fd2394bec2d2fe8b73c/taskuri.js) | Inspect source array |
+| **S2-R3** | List, count, search, add, toggle, delete | [taskuri.js](https://github.com/Taroste/Proiect-tw/blob/052cc594e84da944f2864fd2394bec2d2fe8b73c/taskuri.js) | Review console output sections |
+| **S2-R4** | Add rejects empty name and invalid tag | [taskuri.js](https://github.com/Taroste/Proiect-tw/blob/052cc594e84da944f2864fd2394bec2d2fe8b73c/taskuri.js) | Check console error logs |
+| **S2-R5** | Original array unchanged after add | [taskuri.js](https://github.com/Taroste/Proiect-tw/blob/052cc594e84da944f2864fd2394bec2d2fe8b73c/taskuri.js) | Verify immutability check in console |
+| **S2-R6** | README Stage 2 section + AI log | [README.md / AI-log](https://github.com/Taroste/Proiect-tw/blob/2771a6e889c1205d8962e7bf0e142aa960b5aee7/AI-log/etapa-02.md) | Read documentation |
+| **S2-R7** | Commit "Stage 2" pushed | [Commit History](https://github.com/Taroste/Proiect-tw/commit/052cc594e84da944f2864fd2394bec2d2fe8b73c) | Check GitHub commit log |
