@@ -187,3 +187,76 @@ body {
     --accent-soft: #1e3a8a;
   }
 }
+
+/* Etapa 5: checkbox și buton de ștergere în card */
+.task-main { 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+  cursor: pointer; 
+  flex: 1; /* Ocupă spațiul disponibil pentru a împinge butonul la dreapta */
+}
+
+.task-main input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #2563eb; /* Culoarea de accent din aplicația ta */
+  cursor: pointer;
+}
+
+.btn-danger {
+  border: 1px solid #dc3545; /* Roșu pentru ștergere */
+  background: transparent;
+  color: #dc3545;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font: inherit;
+  cursor: pointer;
+  margin-left: 12px;
+}
+.btn-danger:hover { 
+  background: #dc3545; 
+  color: #fff; 
+}
+
+/* Etapa 5: Tema aleasă din buton are prioritate față de cea a sistemului */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14121d;
+    --card: #1e1b2e;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --border: #352f4d;
+    --accent-soft: #2a2342;
+    --shadow: none;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #14121d;
+  --card: #1e1b2e;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border: #352f4d;
+  --accent-soft: #2a2342;
+  --shadow: none;
+}
+
+/* Etapa 5: butonul de comutare a temei, în colțul antetului */
+.app-header { position: relative; }
+.theme-toggle {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.theme-toggle:hover { 
+  background: rgba(255, 255, 255, 0.15); 
+}
