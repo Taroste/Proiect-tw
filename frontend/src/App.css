@@ -542,3 +542,54 @@ body::before {
   border-radius: 8px;
   padding: 10px 12px;
 }
+/* Asigură-te că .container are 2 coloane pe desktop (sub 700px trece la 1 coloană din media query-ul existent) */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+
+/* ========================================================= */
+/* --- ETAPA 7: FORMULAR CONTROLAT ȘI VALIDARE --- */
+/* ========================================================= */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.task-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.task-form input,
+.task-form select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border, #cbd5e1);
+  background: var(--card-bg, #ffffff);
+  color: var(--text, #0f172a);
+  font-size: 0.95rem;
+}
+
+.task-form input[aria-invalid="true"] {
+  border-color: #ef4444;
+}
+
+.task-form button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.task-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

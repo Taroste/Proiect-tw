@@ -1,34 +1,43 @@
-const ETICHETE_SPECIALITATE = {
-  cardiologie: "Cardiologie",
-  neurologie: "Neurologie",
-  pediatrie: "Pediatrie",
-};
+import { Link } from "react-router-dom";
+import { ETICHETE_SPECIALITATE } from "../constants.js";
+import styles from "./ProgramareCard.module.css";
 
 export default function ProgramareCard({ programare, onToggle, onDelete }) {
   const spec = programare.specialitate;
 
   return (
-    <li className={programare.gata ? "item-card done" : "item-card"}>
-      {/* Checkbox-ul și detaliile sunt grupate într-un label */}
-      <label className="task-main">
+    <li
+      className={programare.gata ? `${styles.card} ${styles.done}` : styles.card}
+      data-testid="item"
+      data-id={programare.id}
+    >
+      <div className={styles.main}>
         <input
           type="checkbox"
           checked={programare.gata}
           onChange={() => onToggle(programare.id)}
+          aria-label={`Marchează ${programare.titlu}`}
+          data-testid="item-toggle"
         />
         <div>
-          <h3>{programare.titlu}</h3>
+          <Link
+            to={`/programari/${programare.id}`}
+            className={styles.title}
+            data-testid="item-link"
+          >
+            {programare.titlu}
+          </Link>
           <span className={`badge badge-${spec}`}>
             {ETICHETE_SPECIALITATE[spec] || spec}
           </span>
         </div>
-      </label>
+      </div>
 
-      {/* Butonul de ștergere care apelează funcția primită din App */}
       <button
         className="btn-danger"
         onClick={() => onDelete(programare.id)}
         aria-label={`Șterge ${programare.titlu}`}
+        data-testid="item-delete"
       >
         Șterge
       </button>
