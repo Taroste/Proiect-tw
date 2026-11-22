@@ -42,22 +42,7 @@ body {
   margin-bottom: 20px;
 }
 
-/* Șuruburi metalice 3D în colțuri (pentru efectul de plăcuță fixată în perete) */
-.app-header::after {
-  content: "";
-  position: absolute;
-  top: 10px; left: 10px; right: 10px; bottom: 10px;
-  pointer-events: none;
-  /* 4 șuruburi reprezentate prin gradiente circulare */
-  background-image: 
-    radial-gradient(circle, #cfd8dc 3px, #455a64 4px, transparent 5px),
-    radial-gradient(circle, #cfd8dc 3px, #455a64 4px, transparent 5px),
-    radial-gradient(circle, #cfd8dc 3px, #455a64 4px, transparent 5px),
-    radial-gradient(circle, #cfd8dc 3px, #455a64 4px, transparent 5px);
-  background-position: top left, top right, bottom left, bottom right;
-  background-repeat: no-repeat;
-  background-size: 12px 12px;
-}
+
 
 /* Titlul MedClinic cu umbră 3D */
 .app-header h1 {
@@ -281,6 +266,9 @@ body {
     --muted: #94a3b8;
     --border: #334155;
     --accent-soft: #1e3a8a;
+    --error-text: #fda4af;
+    --error-bg: #3b1d2e;
+    --error-border: #6b2a4a;
   }
 }
 
@@ -330,6 +318,9 @@ body {
   --panel-bg: #ffffff;         /* Panoul principal alb */
   --faianta-url: url('/faianta_light.jpg');
   --faianta-size: 300px; /* Dimensiunea pentru poza albă */
+  --error-text: #be123c;
+  --error-bg: #fdf2f8;
+  --error-border: #fbcfe8;
 }
 
 /* 2. TEMA ÎNTUNECATĂ (DARK MODE) - Din sistem sau forțată din buton */
@@ -342,6 +333,9 @@ body {
     --border: #334155;          /* Borduri închise */
     --panel-bg: #111827;       /* Panou închis */
     --faianta-url: url('/faianta_dark.jpg');
+    --error-text: #fda4af;
+    --error-bg: #3b1d2e;
+    --error-border: #6b2a4a
     
   }
 }
@@ -531,4 +525,20 @@ body::before {
   top: 16px;
   left: 20px;
   z-index: 12;
+}
+
+/* ========================================================= */
+/* --- ETAPA 6: STĂRI DE ÎNCĂRCARE ȘI DE EROARE --- */
+/* ========================================================= */
+.info {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.error {
+  color: var(--error-text);
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  border-radius: 8px;
+  padding: 10px 12px;
 }

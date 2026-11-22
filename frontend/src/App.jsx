@@ -1,24 +1,51 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import ProgramariList from "./components/ProgramariList.jsx";
-
-const PACIENTI_INITIALI = [
-  { id: 1, titlu: "Popescu Ion (Consult cardiologie)", gata: false, specialitate: "cardiologie" },
-  { id: 2, titlu: "Ionescu Maria (Control pediatrie)", gata: true, specialitate: "pediatrie" },
-  { id: 3, titlu: "Vasilescu Dan (Ecografie neurologie)", gata: false, specialitate: "neurologie" }
-];
+import { fetchProgramari } from "./api.js";
 
 function temaInitiala() {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
 export default function App() {
-  const [pacienti, setPacienti] = useState(PACIENTI_INITIALI);
+  const [pacienti, setPacienti] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   const [tema, setTema] = useState(temaInitiala);
   const [pauza, setPauza] = useState(false);
-  
-  // 1. NOU: STATE PENTRU MODUL URGENȚĂ
   const [urgenta, setUrgenta] = useState(false);
 
+  // Efect pentru modul de urgență "Cod Roșu"
+  useEffect(() => {
+    if (urgenta) {
+      document.body.classList.add("cod-rosu");
+    } else {
+      document.body.classList.remove("cod-rosu");
+    }
+  }, [urgenta]);
+
+  // Efect pentru încărcarea datelor de la API la montarea componentei
+  useEffect(() => {
+    let ignore = false;
+
+    async function load() {
+      try {
+        const data = await fetchProgramari();
+        if (!ignore) setPacienti(data);
+      } catch (err) {
+        if (!ignore) setError(err.message);
+      } finally {
+        if (!ignore) setLoading(false);
+      }
+    }
+
+    load();
+    return () => {
+      ignore = true;
+    };
+  }, []);
+
+  // În Etapa 6 bifarea și ștergerea rămân locale (se rezolvă pe server în Etapa 7)
   function handleToggle(id) {
     setPacienti((prev) => prev.map((p) => (p.id === id ? { ...p, gata: !p.gata } : p)));
   }
@@ -35,15 +62,7 @@ export default function App() {
 
   const active = pacienti.filter((p) => !p.gata).length;
 
-  useEffect(() => {
-  if (urgenta) {
-    document.body.classList.add("cod-rosu");
-  } else {
-    document.body.classList.remove("cod-rosu");
-  }
-}, [urgenta]);
-
- return (
+  return (
     <>
       <header className="app-header">
         {/* Butonul de pauză (Stânga) */}
@@ -51,21 +70,21 @@ export default function App() {
           {pauza ? "🚀 Înapoi la muncă!" : "🍔 Pauză de masă"}
         </button>
 
-        {/* Butonul de Urgență */}
-        <button 
-          className={`urgenta-toggle ${urgenta ? "active" : ""}`} 
+        {/* Butonul de Urgență (Dreapta) */}
+        <button
+          className={`urgenta-toggle ${urgenta ? "active" : ""}`}
           onClick={() => setUrgenta(!urgenta)}
         >
           {urgenta ? "🛑 Oprește Urgența" : "🚨 Cod Roșu"}
         </button>
 
-        {/* Butonul de temă */}
+        {/* Butonul de temă (Dreapta) */}
         <button className="theme-toggle" onClick={handleTema} aria-pressed={tema === "dark"}>
           {tema === "dark" ? "Mod luminos" : "Mod întunecat"}
         </button>
 
         <h1>MedClinic</h1>
-        
+
         <div className="clinic-status">
           <span className={`led ${pauza ? "led-orange" : urgenta ? "led-red" : "led-green"}`}></span>
           <span className="status-text">
@@ -74,15 +93,14 @@ export default function App() {
         </div>
 
         <p>Gestionarea programărilor și a consultațiilor medicale.</p>
-        
+
         <p className="app-count">
-          {pauza 
-            ? "Momentan nu numărăm nimic, mâncăm!" 
+          {pauza
+            ? "Momentan nu numărăm nimic, mâncăm!"
             : `${pacienti.length} programări, dintre care ${active} în așteptare`}
         </p>
       </header>
 
-      {/* AICI: Am lăsat doar className="container" */}
       <main className="container">
         {pauza ? (
           <section className="panel pauza-state">
@@ -94,11 +112,22 @@ export default function App() {
         ) : (
           <section className="panel">
             <h2>Programările mele</h2>
-            <ProgramariList
-              programari={pacienti}
-              onToggle={handleToggle}
-              onDelete={handleDelete}
-            />
+
+            {loading && <p className="info">Se încarcă programările...</p>}
+
+            {error && (
+              <p className="error">
+                Nu am putut încărca datele: {error}. Rulează <code>npm run api</code>?
+              </p>
+            )}
+
+            {!loading && !error && (
+              <ProgramariList
+                programari={pacienti}
+                onToggle={handleToggle}
+                onDelete={handleDelete}
+              />
+            )}
           </section>
         )}
       </main>

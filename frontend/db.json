@@ -1,0 +1,9 @@
+{
+  "programari": [
+    { "id": 1, "titlu": "Popescu Ion (Consult cardiologie)", "gata": false, "specialitate": "cardiologie" },
+    { "id": 2, "titlu": "Ionescu Maria (Control pediatrie)", "gata": true, "specialitate": "pediatrie" },
+    { "id": 3, "titlu": "Vasilescu Dan (Ecografie neurologie)", "gata": false, "specialitate": "neurologie" },
+    { "id": 4, "titlu": "Georgescu Elena (EKG și tensiune)", "gata": false, "specialitate": "cardiologie" },
+    { "id": 5, "titlu": "Dumitrescu Andrei (Evaluare neurologică)", "gata": true, "specialitate": "neurologie" }
+  ]
+}
